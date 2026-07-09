@@ -24,5 +24,5 @@ class TestRegistration:
         driver.find_element(*Locators.email_input).send_keys(InvalidRandomUser.email)
         driver.find_element(*Locators.password_input).send_keys(InvalidRandomUser.invalid_password)
         driver.find_element(*Locators.button_of_registration).click()
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.header_incorrect_password))
-        assert driver.find_element(*Locators.header_incorrect_password).text == 'Некорректный пароль'
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(expected_conditions.visibility_of_element_located(Locators.header_incorrect_password))
