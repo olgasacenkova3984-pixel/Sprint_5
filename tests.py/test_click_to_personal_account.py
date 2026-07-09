@@ -16,5 +16,5 @@ class TestAccount:
         driver.find_element(*Locators.login_button).click()
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.account_button))
         driver.find_element(*Locators.account_button).click()
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.header_profile))
-        assert driver.find_element(*Locators.header_profile).is_displayed()
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(expected_conditions.visibility_of_element_located(Locators.header_profile))
