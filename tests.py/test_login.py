@@ -14,8 +14,8 @@ class TestLogin:
         driver.find_element(*Locators.email_input).send_keys(Credentials.email)
         driver.find_element(*Locators.password_input).send_keys(Credentials.password)
         driver.find_element(*Locators.login_button).click()
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.order_button))
-        assert driver.find_element(*Locators.order_button).is_displayed()
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(expected_conditions.visibility_of_element_located(Locators.order_button))
 
 # Проверка входа через кнопку «Личный кабинет»
     def test_login_with_account_button(self, driver):
@@ -24,8 +24,8 @@ class TestLogin:
         driver.find_element(*Locators.email_input).send_keys(Credentials.email)
         driver.find_element(*Locators.password_input).send_keys(Credentials.password)
         driver.find_element(*Locators.login_button).click()
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.order_button))
-        assert driver.find_element(*Locators.order_button).is_displayed()
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(expected_conditions.visibility_of_element_located(Locators.order_button))
 
 # Проверка входа через кнопку в форме регистрации
     def test_login_from_registration_page(self, driver):
@@ -34,8 +34,8 @@ class TestLogin:
         driver.find_element(*Locators.email_input).send_keys(Credentials.email)
         driver.find_element(*Locators.password_input).send_keys(Credentials.password)
         driver.find_element(*Locators.login_button).click()
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.order_button))
-        assert driver.find_element(*Locators.order_button).is_displayed()
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(expected_conditions.visibility_of_element_located(Locators.order_button))
 
 # Проверка входа через кнопку восстановления пароля
     def test_login_with_forgot_password(self, driver):
@@ -46,5 +46,5 @@ class TestLogin:
         driver.find_element(*Locators.email_input).send_keys(Credentials.email)
         driver.find_element(*Locators.password_input).send_keys(Credentials.password)
         driver.find_element(*Locators.login_button).click()
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.order_button))
-        assert driver.find_element(*Locators.order_button).is_displayed()
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(expected_conditions.visibility_of_element_located(Locators.order_button))
